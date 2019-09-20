@@ -1,5 +1,7 @@
 # ruby-dockerfile-example
 
+See <https://lipanski.github.io/posts/dockerfile-ruby-best-practices>.
+
 A simple Ruby application with a Dockerfile to showcase **Dockerfile best practices**.
 
 When passed a URL via the `url` query parameter, the application will parse and return the title of the underlying web page.
