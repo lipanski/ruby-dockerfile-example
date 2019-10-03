@@ -47,4 +47,5 @@ WORKDIR /home/myuser
 # 8. When running COPY or ADD (as a different user) use --chown
 COPY --chown=myuser . ./
 
-CMD bundle exec rackup
+# 15. When setting the CMD instruction, prefer the exec format over the shell format
+CMD ["bundle", "exec", "rackup"]
