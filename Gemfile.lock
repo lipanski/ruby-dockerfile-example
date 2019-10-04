@@ -2,12 +2,15 @@ GEM
   remote: https://rubygems.org/
   specs:
     mini_portile2 (2.4.0)
+    minitest (5.12.2)
     mustermann (1.0.3)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -19,7 +22,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  minitest
   nokogiri
+  rack-test
   sinatra
 
 BUNDLED WITH

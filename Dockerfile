@@ -26,8 +26,14 @@ COPY Gemfile Gemfile.lock ./
 # 14. Use multi-stage builds to avoid leaking secrets inside your docker history
 RUN git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/some-user".insteadOf git@github.com:some-user && \
   git config --global --add url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/some-user".insteadOf ssh://git@github && \
-  bundle install && \
+  bundle install --without development test && \
   rm ~/.gitconfig
+
+# 16. Optional: Combine production, test and development build processes into a single Dockerfile by using multi-stage builds
+FROM builder AS test
+RUN bundle install --with test
+COPY test.rb ./
+RUN bundle exec ruby test.rb
 
 # 1. Pin your base image version
 # 2. Use only trusted or official base images
